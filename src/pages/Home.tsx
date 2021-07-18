@@ -34,6 +34,7 @@ const Home = () => {
 
     if(!roomRef.exists()) {
       alert('Sala não existe ou código incorreto.')
+      setLoading(false)
       return
     }
 
