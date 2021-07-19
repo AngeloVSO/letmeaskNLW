@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
 import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom'
 import logoImg from "../assets/images/logo.svg";
 import Button from "../components/Button";
+import Question from '../components/Question';
 import RoomCode from "../components/RoomCode";
 import { useAuth } from '../hooks/useAuth';
+import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
 import '../styles/room.scss'
 
@@ -12,65 +13,22 @@ type RoomParams = {
   id: string;
 }
 
-type Question = {
-  id: string;
-  author: {
-    name: string;
-    avatar: string;
-  }
-  content: string;
-  isHighlighted: boolean;
-  isAnswered: boolean;
-}
-
-type FirbaseQuestions = Record<string, {
-  author: {
-    name: string;
-    avatar: string;
-  }
-  content: string;
-  isHighlighted: boolean;
-  isAnswered: boolean;
-}>
-
 const Room = () => {
   const { user } = useAuth();
-  const params = useParams<RoomParams>();
   const [question, setQuestion] = useState('');
-  const [dataQuestions, setDataQuestions] = useState<Question[]>([])
-  const [title, setTitle] = useState('')
+  const params = useParams<RoomParams>();
   const roomId = params.id;
-
-  useEffect(() => {
-    const roomRef = database.ref(`rooms/${roomId}`)
-
-    roomRef.on('value', room => {
-      const dbRoom =  room.val()
-      const resultQuestions: FirbaseQuestions = dbRoom.questions ?? {}
-      const parsedQuestions = Object.entries(resultQuestions).map(([key, value]) => {
-        return {
-          id: key,
-          content: value.content,
-          author: value.author,
-          isHighlighted: value.isHighlighted,
-          isAnswered: value.isAnswered
-        }
-      })
-      setTitle(dbRoom.title)
-      setDataQuestions(parsedQuestions)
-    })
-
-  }, [roomId])
+  const { dataQuestions, title } = useRoom(roomId)
 
   const handleCreateNewQuestion = async (e: FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (question.trim() === '') {
-      return
+    if (question.trim() === "") {
+      return;
     }
 
-    if(!user){
-      throw new Error("Você precisar estar logado!")
+    if (!user) {
+      throw new Error("Você precisar estar logado!");
     }
 
     const newQuestion = {
@@ -80,13 +38,13 @@ const Room = () => {
         avatar: user.avatar,
       },
       isHighlighted: false,
-      isAnswered: false
-    }
+      isAnswered: false,
+    };
 
-    await database.ref(`rooms/${roomId}/questions`).push(newQuestion)
+    await database.ref(`rooms/${roomId}/questions`).push(newQuestion);
 
-    setQuestion('')
-  }
+    setQuestion("");
+  };
 
   return (
     <div id ="page-room">
@@ -120,7 +78,17 @@ const Room = () => {
             <Button type="submit" disabled={!user}>Enviar pergunta</Button>
           </div>
         </form>
-        {JSON.stringify(dataQuestions)}
+        <div className="question-map">
+          {dataQuestions.map(question => {
+            return (
+              <Question 
+                key={question.id} 
+                content={question.content} 
+                author={question.author}
+              />
+            )
+          })}
+        </div>
       </main>
     </div>
   );
