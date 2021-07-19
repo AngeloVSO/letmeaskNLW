@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import '../styles/question.scss'
 
 type QuestionProp = {
@@ -6,9 +7,10 @@ type QuestionProp = {
     name: string;
     avatar: string;
   };
+  children?: ReactNode
 };
 
-const Question = ({ content, author }: QuestionProp) => {
+const Question = ({ children,content, author }: QuestionProp) => {
   return (
     <div className="question" >
       <p>{content}</p>
@@ -17,7 +19,7 @@ const Question = ({ content, author }: QuestionProp) => {
           <img src={author.avatar} alt={author.name} />
           <span>{author.name}</span>
         </div>
-        <div></div>
+        <div>{children}</div>
       </footer>
     </div>
   );

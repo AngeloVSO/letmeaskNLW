@@ -38,7 +38,9 @@ export const AuthContextProvider = (props:AuthContextProviderProps) => {
       }
     })
 
-    return unsubscribe
+    return () => {
+      unsubscribe()
+    }
   }, [])
 
   const signInWithGoogle = async () => {
