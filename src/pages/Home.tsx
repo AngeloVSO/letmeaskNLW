@@ -38,6 +38,12 @@ const Home = () => {
       return
     }
 
+    if(roomRef.val().endedAt) {
+      alert("Sala já foi encerrada!")
+      setLoading(false)
+      return
+    }
+
     history.push(`/rooms/${roomCode}`)
     setLoading(false)
   }
