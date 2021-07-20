@@ -1,5 +1,5 @@
-import { ReactNode } from 'react'
-import '../styles/question.scss'
+import { ReactNode } from "react";
+import "../styles/question.scss";
 
 type QuestionProp = {
   content: string;
@@ -7,12 +7,23 @@ type QuestionProp = {
     name: string;
     avatar: string;
   };
-  children?: ReactNode
+  children?: ReactNode;
+  isAnswered?: boolean;
+  isHighlighted?: boolean;
 };
 
-const Question = ({ children,content, author }: QuestionProp) => {
+const Question = ({
+  isAnswered = false,
+  isHighlighted = false,
+  children,
+  content,
+  author,
+}: QuestionProp) => {
   return (
-    <div className="question" >
+    <div
+      className={`question ${isAnswered ? "answered" : ""} 
+      ${isHighlighted && !isAnswered ? "highlighted" : ""}`}
+    >
       <p>{content}</p>
       <footer>
         <div className="user-info">
