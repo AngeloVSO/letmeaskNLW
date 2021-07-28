@@ -1,46 +1,60 @@
-# Getting Started with Create React App
+<p align="center">
+  <img alt="Letmeask" src="src/assets/images/logo.svg" width="160px">
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img  src="https://img.shields.io/static/v1?label=license&message=MIT&color=5965E0&labelColor=121214" alt="License">
+  
+  <img src="https://img.shields.io/github/forks/guilhermecapitao/letmeask?label=forks&message=MIT&color=5965E0&labelColor=121214" alt="Forks">     
 
-## Available Scripts
+  <img src="https://img.shields.io/github/stars/guilhermecapitao/letmeask?label=stars&message=MIT&color=5965E0&labelColor=121214" alt="Stars">
+</p>
 
-In the project directory, you can run:
+<h1 align="center">
+    <img alt="Letmeask" title="Letmeask" src="https://user-images.githubusercontent.com/70985334/127354028-db63588d-377e-409a-ba60-c62c92d1f607.png" />
+</h1>
 
-### `yarn start`
+<br>
+<h4 align='center'>
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/AngeloVSO/letmeaskNLW"> <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/AngeloVSO/letmeaskNLW">
+</h4>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<h4 align='center'>
+👉 Status: Concluído ✅👏
+</h4>
+<hr />
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+## ⛏ Tecnologias
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [ReactJS](https://reactjs.org/)
+- [Sytele-Components](https://styled-components.com/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Firebase](https://www.emailjs.com/)
 
-### `yarn build`
+## 🚀 Instalação
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Clone o repositório
+$ git clone https://github.com/AngeloVSO/letmeaskNLW
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Entre na pasta do projeto
+$ cd letmeaskNLW
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Instale as dependências
+$ npm install / yarn
 
-### `yarn eject`
+# Execute a aplicação
+$ npm run dev / yarn dev
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Abra http://localhost:3000 no seu navegador para ver a aplicação!
+```
+## Feito por:
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/AngeloVSO">
+    <img src="https://avatars.githubusercontent.com/u/70985334?v=4" width="100px" alt="Imagem do perfil do
+    Angelo O'Dwyer"/>
+    <br />
+    <sub><b>Angelo O'Dwyer</b></sub><br /></td>
+</table>
